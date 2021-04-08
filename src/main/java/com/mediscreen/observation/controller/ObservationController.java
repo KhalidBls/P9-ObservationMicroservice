@@ -1,6 +1,7 @@
 package com.mediscreen.observation.controller;
 
 import com.mediscreen.observation.model.Observation;
+import com.mediscreen.observation.proxy.PatientProxy;
 import com.mediscreen.observation.service.ObservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,18 +21,22 @@ import java.util.Optional;
 public class ObservationController {
 
     private final ObservationService observationService;
+    private final PatientProxy patientProxy;
 
     @Autowired
-    public ObservationController(ObservationService observationService){
+    public ObservationController(ObservationService observationService, PatientProxy patientProxy){
         this.observationService = observationService;
+        this.patientProxy = patientProxy;
     }
 
-    @GetMapping("/observationsForm")
+    @GetMapping("/observationForm")
     public ModelAndView showHome(@RequestParam(required = false) String id) {
 
         String viewName = "observationForm";
 
         Map<String,Object> model = new HashMap<>();
+
+        model.put("patients",patientProxy.getPatients());
 
         if(id != null) {
             Optional<Observation> patient = observationService.findById(id);
@@ -46,7 +51,7 @@ public class ObservationController {
         return new ModelAndView(viewName,model);
     }
 
-    @PostMapping("/ObservationForm")
+    @PostMapping("/observationForm")
     public ModelAndView submitObservation( Observation observation, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()) {

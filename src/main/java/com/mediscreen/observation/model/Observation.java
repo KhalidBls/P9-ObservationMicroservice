@@ -12,11 +12,11 @@ public class Observation {
     @Field
     private String content;
     @Field
-    private String idPatient;
+    private Integer idPatient;
 
     public Observation(){}
 
-    public Observation(String content, String idPatient) {
+    public Observation(String content, Integer idPatient) {
         this.content = content;
         this.idPatient = idPatient;
     }
@@ -37,11 +37,11 @@ public class Observation {
         this.content = content;
     }
 
-    public String getIdPatient() {
+    public Integer getIdPatient() {
         return idPatient;
     }
 
-    public void setIdPatient(String idPatient) {
+    public void setIdPatient(Integer idPatient) {
         this.idPatient = idPatient;
     }
 }

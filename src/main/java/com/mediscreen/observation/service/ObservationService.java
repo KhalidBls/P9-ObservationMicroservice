@@ -21,9 +21,8 @@ public class ObservationService {
     }
 
     public void addOrUpdateObservation(Observation observationToSave) {
-        Observation observation = null;
-
-        if(observationToSave.getId() != null) {
+        Observation observation;
+        if(!observationToSave.getId().equals("")) {
             observation = findById(observationToSave.getId())
                     .orElseThrow(() -> new IllegalArgumentException("Invalid observation id :"+ observationToSave.getId()));
             observation.setContent(observationToSave.getContent());
