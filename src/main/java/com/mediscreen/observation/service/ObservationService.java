@@ -1,6 +1,8 @@
 package com.mediscreen.observation.service;
 
 import com.mediscreen.observation.model.Observation;
+import com.mediscreen.observation.model.PatientDTO;
+import com.mediscreen.observation.proxy.PatientProxy;
 import com.mediscreen.observation.repository.ObservationRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +13,11 @@ import java.util.Optional;
 public class ObservationService {
 
     private final ObservationRepository observationRepository;
+    private final PatientProxy patientProxy;
 
-    ObservationService(ObservationRepository observationRepository){
+    ObservationService(ObservationRepository observationRepository, PatientProxy patientProxy){
         this.observationRepository = observationRepository;
+        this.patientProxy = patientProxy;
     }
 
     public Optional<Observation> findById(String id) {
@@ -33,8 +37,8 @@ public class ObservationService {
         }
     }
 
-    private void save(Observation observation) {
-        observationRepository.save(observation);
+    public Observation save(Observation observation) {
+        return observationRepository.save(observation);
     }
 
     public List<Observation> findAll() {
@@ -43,5 +47,9 @@ public class ObservationService {
 
     public void deleteById(String id) {
         observationRepository.deleteById(id);
+    }
+
+    public List<PatientDTO> getPatients() {
+        return patientProxy.getPatients();
     }
 }

@@ -21,12 +21,10 @@ import java.util.Optional;
 public class ObservationController {
 
     private final ObservationService observationService;
-    private final PatientProxy patientProxy;
 
     @Autowired
-    public ObservationController(ObservationService observationService, PatientProxy patientProxy){
+    public ObservationController(ObservationService observationService){
         this.observationService = observationService;
-        this.patientProxy = patientProxy;
     }
 
     @GetMapping("/observationForm")
@@ -36,7 +34,7 @@ public class ObservationController {
 
         Map<String,Object> model = new HashMap<>();
 
-        model.put("patients",patientProxy.getPatients());
+        model.put("patients",observationService.getPatients());
 
         if(id != null) {
             Optional<Observation> patient = observationService.findById(id);
