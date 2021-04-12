@@ -1,7 +1,7 @@
 package com.mediscreen.observation.service;
 
 import com.mediscreen.observation.model.Observation;
-import com.mediscreen.observation.model.PatientDTO;
+import com.mediscreen.observation.dto.PatientDTO;
 import com.mediscreen.observation.proxy.PatientProxy;
 import com.mediscreen.observation.repository.ObservationRepository;
 import org.springframework.stereotype.Service;

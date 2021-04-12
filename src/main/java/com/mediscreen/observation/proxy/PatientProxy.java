@@ -1,6 +1,6 @@
 package com.mediscreen.observation.proxy;
 
-import com.mediscreen.observation.model.PatientDTO;
+import com.mediscreen.observation.dto.PatientDTO;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;

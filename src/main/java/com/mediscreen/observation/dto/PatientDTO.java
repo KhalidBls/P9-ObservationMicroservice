@@ -1,4 +1,4 @@
-package com.mediscreen.observation.model;
+package com.mediscreen.observation.dto;
 
 public class PatientDTO {
 

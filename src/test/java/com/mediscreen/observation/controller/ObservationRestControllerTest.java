@@ -109,6 +109,7 @@ public class ObservationRestControllerTest {
 
         //WHEN
         doNothing().when(observationService).deleteById("iddenotreobjet123");
+
         //THEN
         mockMvc.perform(delete("/rest/observation/delete/iddenotreobjet123")
                 .contentType(MediaType.APPLICATION_JSON))
