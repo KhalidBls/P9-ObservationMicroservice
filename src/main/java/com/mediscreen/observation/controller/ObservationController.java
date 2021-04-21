@@ -76,7 +76,7 @@ public class ObservationController {
     }
 
     @GetMapping("/observation/delete/{id}")
-    public ModelAndView deleteUser(@PathVariable("id") String id) {
+    public ModelAndView deleteObservation(@PathVariable("id") String id) {
         observationService.deleteById(id);
 
         RedirectView redirect = new RedirectView();

@@ -32,6 +32,11 @@ public class ObservationRestController {
         return observationService.findById(id);
     }
 
+    @GetMapping("/rest/patient/observation/{id}")
+    public List<Observation> getobservationByPatientId(@PathVariable Integer id){
+        return observationService.findByPatientId(id);
+    }
+
     @PutMapping("/rest/observation/update/{id}")
     public ResponseEntity<Observation> updateobservation(@PathVariable String id, @RequestBody  Observation observationDetails){
         Observation observation = observationService.findById(id)

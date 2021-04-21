@@ -52,4 +52,8 @@ public class ObservationService {
     public List<PatientDTO> getPatients() {
         return patientProxy.getPatients();
     }
+
+    public List<Observation> findByPatientId(Integer id) {
+        return observationRepository.findAllByIdPatient(id);
+    }
 }

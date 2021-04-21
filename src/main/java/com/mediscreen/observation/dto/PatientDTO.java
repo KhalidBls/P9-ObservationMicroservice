@@ -5,7 +5,6 @@ public class PatientDTO {
     private Integer id;
     private String firstName;
     private String lastName;
-    private String family;
     private String sex;
     private String address;
     private String phone;
@@ -13,11 +12,10 @@ public class PatientDTO {
 
     public PatientDTO(){}
 
-    public PatientDTO(Integer id, String firstName, String lastName, String family, String sex, String address, String phone, String dateOfBirth) {
+    public PatientDTO(Integer id, String firstName, String lastName, String sex, String address, String phone, String dateOfBirth) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.family = family;
         this.sex = sex;
         this.address = address;
         this.phone = phone;
@@ -46,14 +44,6 @@ public class PatientDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getFamily() {
-        return family;
-    }
-
-    public void setFamily(String family) {
-        this.family = family;
     }
 
     public String getSex() {

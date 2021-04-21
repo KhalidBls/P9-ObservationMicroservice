@@ -17,7 +17,7 @@
         <form action="#" th:action="@{/observationForm}" th:object="${observation}" method="post" class="form-horizontal" style="width: 100%">
             <div class="form-group blu-margin">
                 <select class="form-control" th:field="*{idPatient}"  id="idPatient">
-                    <label for="content" class="col-sm-2 control-label">Select Patient </label>
+                    <label for="idPatient" class="col-sm-2 control-label">Select Patient </label>
                     <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.firstName} + ' ' + ${patient.lastName}"></option>
                 </select>
             </div>
