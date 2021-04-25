@@ -15,7 +15,7 @@ public class PatientProxy {
     public List<PatientDTO> getPatients() {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<PatientDTO>> responseEntity =
-                restTemplate.exchange("http://localhost:8081/rest/patient", HttpMethod.GET, null, new ParameterizedTypeReference<List<PatientDTO>>() {
+                restTemplate.exchange("http://patient:8081/rest/patient", HttpMethod.GET, null, new ParameterizedTypeReference<List<PatientDTO>>() {
                 });
         return responseEntity.getBody();
     }

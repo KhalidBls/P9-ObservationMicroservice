@@ -55,4 +55,12 @@ public class ObservationControllerTest {
 
     }
 
+    @Test
+    public void testDeleteObservations() throws Exception {
+
+        mockMvc.perform(get("/observation/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/observations"));;
+    }
+
 }
